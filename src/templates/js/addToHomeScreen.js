@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
                                                                 // Required.
         assetUrl: 'https://raw.githubusercontent.com/philfung/add-to-homescreen/refs/heads/main/dist/assets/img/',                                         // Link to directory of library image assets.
 
-        maxModalDisplayCount: -1,                               // If set, the modal will only show this many times.
+        maxModalDisplayCount: 1,                                // If set, the modal will only show this many times.
                                                                 // [Optional] Default: -1 (no limit).  (Debugging: Use this.clearModalDisplayCount() to reset the count)
         displayOptions:{ showMobile: true, showDesktop: true }, // show on mobile/desktop [Optional] Default: show everywhere
         allowClose: true, // allow the user to close the modal by tapping outside of it [Optional. Default: true]
