@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {{render_template("templates/includes/meta.html", site_meta = site_meta)}}
+    </head>
+    <body>
+        {{render_template("templates/includes/header.html", site_meta = site_meta)}}
+
+        <main class="grid min-h-full place-items-center px-10 py-24 sm:py-32">
+            <div class="text-center">
+                <p class="text-base font-semibold text-indigo-600">404</p>
+
+                <h1 class="mt-4 text-4xl font-semibold tracking-tight text-balance text-gray-900 sm:text-5xl">Page not found</h1>
+            </div>
+        </main>
+
+        {{render_template("templates/includes/footer.html", site_meta = site_meta)}}
+    </body>
+</html>
