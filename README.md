@@ -29,3 +29,8 @@ Built with help from:
 
 * SB Component 3V Relay Hat demo code: [https://github.com/sbcshop/Pico-3V-Relay-HAT](https://github.com/sbcshop/Pico-3V-Relay-HAT)
 * Simon Prickett's Phew demo code: [https://github.com/simonprickett/pimoroni-phew-template-demo](https://github.com/simonprickett/pimoroni-phew-template-demo)
+
+## Demo
+![Front end rendering](images/demo_screenshot.png)
+![Image of device 1](images/rpi-pico-door-opener-1.jpg)
+![Image of device 2](images/rpi-pico-door-opener-2.jpg)

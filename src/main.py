@@ -86,11 +86,13 @@ def main():
             door_buttons = [
                 {
                     "relay": "relay1",
+                    "disable-time": config.RELAY_1_TIME_BUTTON_DISABLED,
                     "text": config.SITE_RELAY_1_BTN_LABEL,
                     "css_class": "bg-indigo-600 hover:bg-indigo-500 focus-visible:outline-indigo-600" + (" hidden" if not config.ENABLE_RELAY_1 else "")
                 },
                 {
                     "relay": "relay2",
+                    "disable-time": config.RELAY_2_TIME_BUTTON_DISABLED,
                     "text": config.SITE_RELAY_2_BTN_LABEL,
                     "css_class": "bg-purple-600 hover:bg-purple-500 focus-visible:outline-purple-600" + (" hidden" if not config.ENABLE_RELAY_2 else "")
                 }
@@ -137,12 +139,12 @@ def main():
 
                 if relay == "relay1" and relay1 is not False:
                     relay1(1)  # Turn on Relay1
-                    utime.sleep(config.RELAY_TIME_BETWEEN)
+                    utime.sleep(config.RELAY_1_TIME_BETWEEN)
                     relay1(0)  # Turn off Relay1
 
                 if relay == "relay2" and relay2 is not False:
                     relay2(1)  # Turn on Relay2
-                    utime.sleep(config.RELAY_TIME_BETWEEN)
+                    utime.sleep(config.RELAY_2_TIME_BETWEEN)
                     relay2(0)  # Turn off Relay2
 
                 response =  True # Should return `True` to the AJAX request
