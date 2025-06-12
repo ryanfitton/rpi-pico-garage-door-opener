@@ -8,6 +8,8 @@ license MIT
 
 Micropython powered Garage door opener running on a [Raspberry Pi Pico W](https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html#pico-1-family), with an [SB Component 3V Relay Hat](https://learn.sb-components.co.uk/Pico-3v-Relay-Hat), styled with [Tailwind](https://tailwindcss.com/) and hosted using the [Pimoroni Phew](https://github.com/pimoroni/phew) web server.
 
+Read about this project in more detail on my blog: [https://ryanfitton.co.uk/blog/rpi-pico-garage-door-opener-relay-3v/](https://ryanfitton.co.uk/blog/rpi-pico-garage-door-opener-relay-3v/)
+
 ## Installation
 
 * Install MicroPython on the Raspberry Pi Pico W ([get the installer here](https://micropython.org/download/RPI_PICO_W/)). Alternatively Micropython firmware `v1.25.0` for the 1st gen RPI Pico W is included in the `firmware` folder for this repo.
