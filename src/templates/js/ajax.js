@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 responseElDisplay(responseDiv, "hide", 5000);
 
                 //Amend the button display attributes
-                buttonAttributes(button, buttonOriginalText, false, buttonDisableTime);
+                buttonAttributes(button, buttonOriginalText, false, (data === true ? buttonDisableTime : 0));
             })
             .catch(error => {
                 console.error("Error:", error);
@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 responseElDisplay(responseDiv, "hide", 5000);
 
                 //Amend the button display attributes
-                buttonAttributes(button, buttonOriginalText, false, buttonDisableTime);
+                buttonAttributes(button, buttonOriginalText, false, 0);
             });
         });
     });
