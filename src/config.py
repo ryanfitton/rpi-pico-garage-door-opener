@@ -24,6 +24,6 @@ SITE_FOOTER_LINKS = [
     },
     {
         "text": "About this project", 
-        "href": "https://ryanfitton.co.uk/blog/raspberry-pi-pico-garage-door-opener"
+        "href": "https://ryanfitton.co.uk/blog/rpi-pico-garage-door-opener-relay-3v/"
     }
 ]
