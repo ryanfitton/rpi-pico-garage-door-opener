@@ -33,6 +33,6 @@ Built with help from:
 * Simon Prickett's Phew demo code: [https://github.com/simonprickett/pimoroni-phew-template-demo](https://github.com/simonprickett/pimoroni-phew-template-demo)
 
 ## Demo
-![Front end rendering](images/demo_screenshot.png)
+![Front end rendering](images/rpi-pico-door-opener-3.png)
 ![Image of device 1](images/rpi-pico-door-opener-1.jpg)
 ![Image of device 2](images/rpi-pico-door-opener-2.jpg)
