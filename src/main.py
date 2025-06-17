@@ -2,10 +2,12 @@ from phew import connect_to_wifi, is_connected_to_wifi, server
 from phew.template import render_template
 import json
 import config
+import requests                         #Micropython default lib
+import machine                          #Micropython default lib
 from machine import Pin                 #Micropython default lib
 from machine import WDT                 #Micropython default lib
 import time                             #Micropython default lib
-import utime                             #Micropython default lib
+import utime                            #Micropython default lib
 import gc                               #Micropython default lib
 import _thread                          #Micropython default lib
 
@@ -47,6 +49,44 @@ def initWiFi():
         feedWatchdog() # Feed Watchdog
         logger("Failed to connect to wifi, check credentials in config.py.")
         return False
+    
+
+# Send Pushover Message
+# =====================================================
+def sendPushoverMessage(message):
+    feedWatchdog()  # Feed Watchdog
+
+    # Construct API url
+    url = config.PUSHOVER_PROTOCOL + config.PUSHOVER_HOST + config.PUSHOVER_API_BASE_MESSAGE
+
+    # Prepare multipart/form-data
+    import machine
+    boundary = '----WebKitFormBoundary{}'.format(machine.unique_id().hex())
+    headers = {
+        'Content-Type': f'multipart/form-data; boundary={boundary}'
+    }
+
+    # Build multipart body (no attachment)
+    body = (
+        f'--{boundary}\r\n'
+        f'Content-Disposition: form-data; name="token"\r\n\r\n{config.PUSHOVER_TOKEN}\r\n'
+        f'--{boundary}\r\n'
+        f'Content-Disposition: form-data; name="user"\r\n\r\n{config.PUSHOVER_USER}\r\n'
+        f'--{boundary}\r\n'
+        f'Content-Disposition: form-data; name="message"\r\n\r\n{message}\r\n'
+        f'--{boundary}--\r\n'
+    ).encode('utf-8')
+
+    # Send the request
+    response = requests.post(url, headers=headers, data=body)
+    _status = response.status_code
+
+    if _status == 200:
+        data = "Pushover sent."
+    else:
+        data = f"Pushover error: {response.text}"
+
+    return data
 
 
 # Message logger - Mainly for debugging
@@ -146,7 +186,11 @@ def main():
                     relay2(1)  # Turn on Relay2
                     utime.sleep(config.RELAY_2_TIME_BETWEEN)
                     relay2(0)  # Turn off Relay2
-
+                    
+                if config.USE_PUSHOVER is not False:
+                    logger("Sending Pushover message...")
+                    sendPushoverMessage(config.PUSHOVER_MESSAGE)    # Send a Pushover message
+                
                 response =  True # Should return `True` to the AJAX request
                 
 
